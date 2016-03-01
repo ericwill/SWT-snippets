@@ -20,7 +20,7 @@ public class CompositeForegroundColorTest {
 	    System.out.println("fore=" + comp.getForeground());
 	    shell.setForeground(new Color(display, 240, 240, 240));
 	    comp.setBackground(display.getSystemColor(SWT.COLOR_WHITE));
-	    System.out.println("after");
+	    System.out.println("\n after \n");
 	    System.out.println("shell back=" + shell.getBackground());
 	    System.out.println("shell fore=" + shell.getForeground());
 	    System.out.println("back=" + comp.getBackground());
