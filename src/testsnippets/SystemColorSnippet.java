@@ -41,7 +41,11 @@ public class SystemColorSnippet {
 		System.out.println("COLOR_TITLE_INACTIVE_FOREGROUND: " + display.getSystemColor(SWT.COLOR_TITLE_INACTIVE_FOREGROUND));
 		System.out.println("COLOR_TITLE_INACTIVE_BACKGROUND: " + display.getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND));
 		System.out.println("COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT: " + display.getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
+<<<<<<< Upstream, based on branch 'master' of https://github.com/ericwill/SWT-snippets.git
 		
+=======
+		shell.open();
+>>>>>>> ebe4dc1 System color snippet
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
