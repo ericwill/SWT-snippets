@@ -6,22 +6,16 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.ScrolledComposite;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Layout;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 /**
  * Creates and opens a wizard dialog with two simple wizard pages.
  */
-public class Bug487160_WizardWithScrolledComposite {
+public class Bug487160_WizardWithoutScrolledComposite {
 
 	static class FirstWizardPage extends WizardPage {
 
@@ -31,20 +25,13 @@ public class Bug487160_WizardWithScrolledComposite {
 
 		@Override
 		public void createControl(Composite parent) {
-			ScrolledComposite sc = new ScrolledComposite(parent, SWT.VERTICAL);
-			sc.setExpandVertical(true);
-			sc.setExpandHorizontal(true);
-			Composite composite = new Composite(sc, SWT.NONE);
+			Composite composite = new Composite(parent, SWT.NONE);
 			Label label = new Label(composite, SWT.NONE);
 			label.setText("Enter a number between 0 and 9:");
 			new Text(composite, SWT.BORDER);
 
 			GridLayoutFactory.swtDefaults().numColumns(2).generateLayout(composite);
-			sc.setContent(composite);
-			Point p = composite.computeSize(SWT.DEFAULT, SWT.DEFAULT);
-			sc.setSize(p);
-			sc.setMinSize(p);
-			setControl(sc);
+			setControl(composite);
 		}
 	}
 
@@ -55,34 +42,21 @@ public class Bug487160_WizardWithScrolledComposite {
 
 		@Override
 		public void createControl(Composite parent) {
-			ScrolledComposite sc = new ScrolledComposite(parent, SWT.VERTICAL);
-			sc.setExpandVertical(true);
-			sc.setExpandHorizontal(true);
-			Composite composite = new Composite(sc, SWT.NONE);
+			Composite composite = new Composite(parent, SWT.NONE);
 			Label label = new Label(composite, SWT.NONE);
 			label.setText("Enter a date:");
-			GridData data;
-			data = new GridData(GridData.FILL_HORIZONTAL);
-			new Text(composite, SWT.BORDER).setLayoutData(data);
-			
-			data = new GridData(GridData.FILL_HORIZONTAL);	
-			label.setLayoutData(data);
-			
+			new Text(composite, SWT.BORDER);
+
 			GridLayoutFactory.swtDefaults().numColumns(2).generateLayout(composite);
 
-			sc.setContent(composite);
-			Point p = composite.computeSize(SWT.DEFAULT, SWT.DEFAULT);
-			sc.setSize(p);
-			sc.setMinSize(p);
-
-			setControl(sc);
+			setControl(composite);
 		}
 	}
 
 	static class SampleWizard extends Wizard {
 
 		@Override
-		public void addPages() {			
+		public void addPages() {
 			addPage(new FirstWizardPage());
 			addPage(new SecondWizardPage());
 		}
@@ -115,3 +89,5 @@ public class Bug487160_WizardWithScrolledComposite {
 	}
 
 }
+
+
