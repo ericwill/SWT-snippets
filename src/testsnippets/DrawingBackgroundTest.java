@@ -55,7 +55,4 @@ public class DrawingBackgroundTest {
         }
         display.dispose();
     }
-
-    private GCvsBackground() {
-    }
 }
