@@ -33,17 +33,17 @@ public static void main (String [] args) {
 		text.append ("Line " + i + "\n");
 	}
 	shell.open ();
-<<<<<<< Upstream, based on branch 'master' of https://github.com/ericwill/SWT-snippets.git
-	text.setSelection (0, 5);
-	text.setTopIndex(20);
-	System.out.println(text.getTopIndex());
-	System.out.println ("selection=" + text.getSelection ());
-	System.out.println ("selection text=" + text.getSelectionText ());
-	System.out.println ("caret position=" + text.getCaretPosition ());
-	System.out.println ("caret location=" + text.getCaretLocation ());
-	while (!shell.isDisposed ()) {
-		if (!display.readAndDispatch ()) display.sleep ();
-=======
+
+//	text.setSelection (0, 5);
+//	text.setTopIndex(20);
+//	System.out.println(text.getTopIndex());
+//	System.out.println ("selection=" + text.getSelection ());
+//	System.out.println ("selection text=" + text.getSelectionText ());
+//	System.out.println ("caret position=" + text.getCaretPosition ());
+//	System.out.println ("caret location=" + text.getCaretLocation ());
+//	while (!shell.isDisposed ()) {
+//		if (!display.readAndDispatch ()) display.sleep ();
+
 //	text.setSelection (0, 5);
 	text.setTopIndex(20);
 	int perm = text.getTopIndex();
@@ -56,7 +56,7 @@ public static void main (String [] args) {
 		if (text.getTopIndex() != 20) {
 			System.out.println("initial " + perm + " " + "current " + text.getTopIndex());
 		}
->>>>>>> bcecc4d Bug 461354 & 487467: getTopIndex() test snippets for List and Text
+
 	}
 	display.dispose ();
 } 
