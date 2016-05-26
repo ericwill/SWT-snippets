@@ -23,16 +23,6 @@ public class Bug493552_NativeTestGDK {
 	      OS.gtk_menu_item_set_submenu(root_menu, menu);
 	      /* Create a menu-bar to hold the menus and add it to our main window*/
 	      long menu_bar = OS.gtk_menu_bar_new();
-<<<<<<< Upstream, based on branch 'master' of https://github.com/ericwill/SWT-snippets.git
-	      long /*int*/ screen = OS.gdk_screen_get_default ();
-//	      int monitorNumber = OS.gdk_screen_get_monitor_at_window (screen, OS.gtk_widget_get_window(window));
-	      int monitorNumber = OS.gdk_screen_get_primary_monitor (screen);
-	      System.out.println("monitorNumber " + monitorNumber);
-	      OS.gtk_container_add(window, menu_bar);
-	      OS.gtk_widget_show(menu_bar);
-	      OS.gtk_menu_shell_insert(menu_bar, root_menu, 0);
-	      OS.gtk_widget_show(window);
-=======
 	      OS.gtk_container_add(window, menu_bar);
 	      OS.gtk_widget_show(menu_bar);
 	      OS.gtk_menu_shell_insert(menu_bar, root_menu, 0);
@@ -40,12 +30,7 @@ public class Bug493552_NativeTestGDK {
 	      long /*int*/ screen = OS.gdk_screen_get_default ();
 //	      int monitorNumber = OS.gdk_screen_get_monitor_at_window (screen, OS.gtk_widget_get_window(window));
 	      int monitorNumber = OS.gdk_screen_get_primary_monitor (screen);
-<<<<<<< Upstream, based on branch 'master' of https://github.com/ericwill/SWT-snippets.git
-	      System.out.println("monitorNumber " + monitorNumber);
->>>>>>> 36aa95c Bug 493552: Test monitor results using PI interface
-=======
 	      System.out.println("Primary monitorNumber " + monitorNumber);
->>>>>>> e2d7919 Bug 493552: Test monitor results using PI interface
 	      OS.gtk_main ();
 	}
 	
