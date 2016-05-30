@@ -246,12 +246,11 @@ public class Bug494115_Multi_Page_Wizard_shows_empty_pages_with_ScrolledForm {
 	}
 	
 	public static void main(String[] args) {
-		
 		// Config:
-		int to_run = 2;
+		int to_run = 1;
 		
 		// Execution:
-		if (to_run == 2)
+		if (to_run == 1)
 			makeWizzard();
 		else if (to_run == 2)
 			makeSWTSnippet();
