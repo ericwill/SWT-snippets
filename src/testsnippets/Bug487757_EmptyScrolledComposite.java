@@ -34,99 +34,14 @@ public class Bug487757_EmptyScrolledComposite {
 
 	
 	
-	/* Wizzard bits */
-	static class WizardPageOne extends WizardPage {
-
-		public WizardPageOne(String pageName, String title, ImageDescriptor titleImage) {
-			super(pageName, title, titleImage);
-		}
-
-		public WizardPageOne(String pageName) {
-			super(pageName);
-		}
-		
-		@Override
-		public void createControl(Composite parent) {
-
-			// Using Scrolled Composite ===> Gtk3: Button does not fill Scrolled composite. Gtk2: Button fills Scrolled composite.
-			ScrolledComposite sc = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.H_SCROLL);
-			sc.setExpandHorizontal(true);
-			sc.setExpandVertical(true);
-			Button button = new Button(sc, SWT.PUSH);
-			button.setText("hello world!");
-			sc.setContent(button);
-			setControl(sc);
-			
-			// Original jFace From layout.
-//     	FormToolkit toolkit = new FormToolkit(parent.getDisplay());
-//			ScrolledForm form = toolkit.createScrolledForm(parent);
-//			System.out.println("hello world");
-//			form.setText("Sample form");
-//			//form.getBody().setLayout(new GridLayout());
-//			//toolkit.createButton(form.getBody(), "Checkbox", SWT.CHECK);
-//			form.reflow(true);
-//			setControl(form);     /// <<< Note
-		}
-	}
-
-	static class SampleWizard extends Wizard {
-
-		@Override
-		public void addPages() {			
-			addPage(new WizardPageOne("First page"));
-		}
-
-		@Override
-		public String getWindowTitle() {
-			return "title meh.";
-		}
-
-		@Override
-		public boolean performFinish() {
-			return true;
-		}
-
-	}
-	
-	private static void makeWizzard() {
-		Display display = Display.getCurrent();
-		final Shell shell = new Shell(display);
-		//shell.setSize(350, 200);
-		//shell.open();
-		
-		
-		IWizard wizard = new SampleWizard();
-		WizardDialog dialog = new WizardDialog(shell, wizard);
-		dialog.open();
-		// The SWT event loop
-		while (dialog.getShell() != null && !dialog.getShell().isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-	}
-
-	
-	
 	/* Snippet bits */
 	private static void makeSWTSnippet() {
 		
 		// Copied from Snippet 5.
-		 Display display = new Display ();
+		Display display = new Display ();
 	    Shell shell = new Shell (display);
 	    shell.setLayout(new FillLayout());
 
-	    // this button is always 400 x 400. Scrollbars appear if the window is resized to be
-	    // too small to show part of the button
-	    ScrolledComposite c1 = new ScrolledComposite(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
-	    Button b1 = new Button(c1, SWT.PUSH);
-	    b1.setText("fixed size button");
-	    b1.setSize(400, 400);
-	    c1.setContent(b1);
-
-	    // this button has a minimum size of 400 x 400. If the window is resized to be big
-	    // enough to show more than 400 x 400, the button will grow in size. If the window
-	    // is made too small to show 400 x 400, scrollbars will appear.
 	    ScrolledComposite c2 = new ScrolledComposite(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
 	    Button b2 = new Button(c2, SWT.PUSH);
 	    b2.setText("expanding button");
@@ -149,7 +64,7 @@ public class Bug487757_EmptyScrolledComposite {
 	
 	public static void main(String[] args) {
 		// Config:
-		int to_run = 1;
+		int to_run = 2;
 		
 		// Execution:
 		if (to_run == 1)
@@ -158,4 +73,76 @@ public class Bug487757_EmptyScrolledComposite {
 			makeSWTSnippet();
 		
 	}
+
+	/* Wizzard bits */
+		static class WizardPageOne extends WizardPage {
+	
+			public WizardPageOne(String pageName, String title, ImageDescriptor titleImage) {
+				super(pageName, title, titleImage);
+			}
+	
+			public WizardPageOne(String pageName) {
+				super(pageName);
+			}
+			
+			@Override
+			public void createControl(Composite parent) {
+	
+				// Using Scrolled Composite ===> Gtk3: Button does not fill Scrolled composite. Gtk2: Button fills Scrolled composite.
+				ScrolledComposite sc = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.H_SCROLL);
+				sc.setExpandHorizontal(true);
+				sc.setExpandVertical(true);
+				Button button = new Button(sc, SWT.PUSH);
+				button.setText("hello world!");
+				sc.setContent(button);
+				setControl(sc);
+				
+				// Original jFace From layout.
+	//     	FormToolkit toolkit = new FormToolkit(parent.getDisplay());
+	//			ScrolledForm form = toolkit.createScrolledForm(parent);
+	//			System.out.println("hello world");
+	//			form.setText("Sample form");
+	//			//form.getBody().setLayout(new GridLayout());
+	//			//toolkit.createButton(form.getBody(), "Checkbox", SWT.CHECK);
+	//			form.reflow(true);
+	//			setControl(form);     /// <<< Note
+			}
+		}
+
+		static class SampleWizard extends Wizard {
+		
+			@Override
+			public void addPages() {			
+				addPage(new WizardPageOne("First page"));
+			}
+		
+			@Override
+			public String getWindowTitle() {
+				return "title meh.";
+			}
+		
+			@Override
+			public boolean performFinish() {
+				return true;
+			}
+		
+		}
+
+		private static void makeWizzard() {
+			Display display = Display.getCurrent();
+			final Shell shell = new Shell(display);
+			//shell.setSize(350, 200);
+			//shell.open();
+			
+			
+			IWizard wizard = new SampleWizard();
+			WizardDialog dialog = new WizardDialog(shell, wizard);
+			dialog.open();
+			// The SWT event loop
+			while (dialog.getShell() != null && !dialog.getShell().isDisposed()) {
+				if (!display.readAndDispatch()) {
+					display.sleep();
+				}
+			}
+		}
 }
