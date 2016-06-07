@@ -1,69 +1,94 @@
 package testsnippets;
 
-import org.eclipse.jface.layout.GridLayoutFactory;
+import java.util.Map.Entry;
+
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.FormData;
-import org.eclipse.swt.layout.FormLayout;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
-import org.eclipse.ui.internal.forms.widgets.TitleRegion;
+
+import com.sun.nio.file.SensitivityWatchEventModifier;
 
 /**
  * Creates and opens a wizard dialog with two simple wizard pages.
  */
 public class Bug487757_EmptyScrolledComposite {
-
-	
 	
 	/* Snippet bits */
 	private static void makeSWTSnippet() {
+		Test t = new Test();
+		t.shell.setLayout(new FillLayout());
 		
-		// Copied from Snippet 5.
-		Display display = new Display ();
-	    Shell shell = new Shell (display);
-	    shell.setLayout(new FillLayout());
+		// Snippet selection. 
+		int val = 2;
+		
+		if (val == 1) {
+		    Composite c1 = new Composite(t.shell, SWT.BORDER);
+		    c1.setLayout(new FillLayout());
+		    Button b1 = new Button(c1, SWT.PUSH);
+		    b1.setText("button inside composite");
+		    c1.setVisible(false);
+		    c1.setVisible(true);
+		    
+		    t.shell.layout();
+		    
+		    System.out.println("Shell size : " + t.shell.getSize().toString());
+		    System.out.println("Comp size : " + c1.getSize().toString());
+		    System.out.println("Button size: " + b1.getSize().toString());
+		    
+	    } else if (val == 2){
+		    ScrolledComposite c2 = new ScrolledComposite(t.shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
+		    Color color = new Color(t.display, 255,127, 0);
+		    c2.setBackground(color);
+		    
+		    Button b2 = new Button(c2, SWT.PUSH);
+		    b2.setText("expanding button");
+		    c2.setContent(b2);
+		    c2.setExpandHorizontal(true);
+		    c2.setExpandVertical(true);
+		   
+		    
+		    System.out.println("SComp size : " + c2.getSize().toString());
+		    //t.shell.setSize(300, 300);
 
-	    ScrolledComposite c2 = new ScrolledComposite(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
-	    Button b2 = new Button(c2, SWT.PUSH);
-	    b2.setText("expanding button");
-	    c2.setContent(b2);
-	    c2.setExpandHorizontal(true);
-	    c2.setExpandVertical(true);
-	    c2.setMinSize(400, 400);
-
-	    // MODIFICATION from Snippet 5.
-	    c2.setVisible(false);
-	    c2.setVisible(true);
-	    
-	    shell.setSize(600, 300);
-	    shell.open ();
-	    while (!shell.isDisposed ()) {
-	        if (!display.readAndDispatch ()) display.sleep ();
+		    c2.setVisible(false);		// After these two lines, size_allocate in control doesn't allocate properly.     
+		    c2.setVisible(true);
+		    
+		    Composite c1 = new Composite(t.shell, SWT.BORDER);
+		    c1.setLayout(new FillLayout());
+		    Button b3 = new Button(c1, SWT.PUSH);
+		    b3.setText("meh");
+		    
+		    t.shell.layout();
+		    
+		    System.out.println("Shell size : " + t.shell.getSize().toString());
+		    System.out.println("SComp size : " + c2.getSize().toString());
+		    System.out.println("Button size: " + b2.getSize().toString());	    
 	    }
-	    display.dispose ();
+		
+	    t.displayLoop();
+	    
 	}
+
 	
 	public static void main(String[] args) {
-		// Config:
+		// Config selection:
 		int to_run = 2;
 		
 		// Execution:
@@ -71,7 +96,6 @@ public class Bug487757_EmptyScrolledComposite {
 			makeWizzard();
 		else if (to_run == 2)
 			makeSWTSnippet();
-		
 	}
 
 	/* Wizzard bits */
@@ -89,23 +113,23 @@ public class Bug487757_EmptyScrolledComposite {
 			public void createControl(Composite parent) {
 	
 				// Using Scrolled Composite ===> Gtk3: Button does not fill Scrolled composite. Gtk2: Button fills Scrolled composite.
-				ScrolledComposite sc = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.H_SCROLL);
-				sc.setExpandHorizontal(true);
-				sc.setExpandVertical(true);
-				Button button = new Button(sc, SWT.PUSH);
-				button.setText("hello world!");
-				sc.setContent(button);
-				setControl(sc);
+//				ScrolledComposite sc = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.H_SCROLL);
+//				sc.setExpandHorizontal(true);
+//				sc.setExpandVertical(true);
+//				Button button = new Button(sc, SWT.PUSH);
+//				button.setText("hello world!");
+//				sc.setContent(button);
+//				setControl(sc);
 				
 				// Original jFace From layout.
-	//     	FormToolkit toolkit = new FormToolkit(parent.getDisplay());
-	//			ScrolledForm form = toolkit.createScrolledForm(parent);
-	//			System.out.println("hello world");
-	//			form.setText("Sample form");
-	//			//form.getBody().setLayout(new GridLayout());
-	//			//toolkit.createButton(form.getBody(), "Checkbox", SWT.CHECK);
-	//			form.reflow(true);
-	//			setControl(form);     /// <<< Note
+	     	FormToolkit toolkit = new FormToolkit(parent.getDisplay());
+				ScrolledForm form = toolkit.createScrolledForm(parent);
+				System.out.println("hello world");
+				form.setText("Sample form");
+				//form.getBody().setLayout(new GridLayout());
+				//toolkit.createButton(form.getBody(), "Checkbox", SWT.CHECK);
+				form.reflow(true);
+				setControl(form);     /// <<< Note
 			}
 		}
 
@@ -131,9 +155,6 @@ public class Bug487757_EmptyScrolledComposite {
 		private static void makeWizzard() {
 			Display display = Display.getCurrent();
 			final Shell shell = new Shell(display);
-			//shell.setSize(350, 200);
-			//shell.open();
-			
 			
 			IWizard wizard = new SampleWizard();
 			WizardDialog dialog = new WizardDialog(shell, wizard);
