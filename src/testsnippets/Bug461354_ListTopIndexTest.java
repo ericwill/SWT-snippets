@@ -27,6 +27,8 @@ public static void main (String [] args) {
 	Shell shell = new Shell (display);
 	final List list = new List (shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 	for (int i=0; i<128; i++) list.add ("Item " + i);
+	list.setTopIndex(40);
+	System.out.println(list.getTopIndex());
 	Rectangle clientArea = shell.getClientArea ();
 	list.setBounds (clientArea.x, clientArea.y, 100, 100);
 	list.addListener (SWT.Selection, e -> {
@@ -39,11 +41,16 @@ public static void main (String [] args) {
 		String string = "";
 		int [] selection = list.getSelectionIndices ();
 		for (int i=0; i<selection.length; i++) string += selection [i] + " ";
-		System.out.println ("DefaultSelection={" + string + "}");
+//		System.out.println ("DefaultSelection={" + string + "}");
 //		System.out.println(list.getTopIndex());
 	});
+	list.addListener (SWT.MouseWheel, e -> {
+		System.out.println(list.getTopIndex());
+	});
+	list.setTopIndex(4);
 //	list.setSelection(60);
-//	System.out.println(list.getTopIndex());
+//	list.setTopIndex(40);
+	System.out.println(list.getTopIndex());
 	shell.pack ();
 	shell.open ();
 	while (!shell.isDisposed ()) {
