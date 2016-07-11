@@ -34,6 +34,9 @@ public static void main (String [] args) {
 	tree.addListener (SWT.MouseWheel, e -> {
 		System.out.println(tree.getTopItem().getText());
 	});
+	tree.addListener (SWT.Selection, e -> {
+		System.out.println(tree.getTopItem().getText());
+	});
 	tree.setTopItem(tree.getItem(20));
 	System.out.println(tree.getTopItem().getText());
 	shell.pack ();

@@ -58,17 +58,11 @@ public class Bug487160_WizardWithScrolledComposite {
 			ScrolledComposite sc = new ScrolledComposite(parent, SWT.VERTICAL);
 			sc.setExpandVertical(true);
 			sc.setExpandHorizontal(true);
-			System.out.println("sc handle " + sc.handle);
 			Composite composite = new Composite(sc, SWT.NONE);
 			Label label = new Label(composite, SWT.NONE);
 			label.setText("Enter a date:");
-			GridData data;
-			data = new GridData(GridData.FILL_HORIZONTAL);
-			new Text(composite, SWT.BORDER).setLayoutData(data);
-			
-			data = new GridData(GridData.FILL_HORIZONTAL);	
-			label.setLayoutData(data);
-			
+			new Text(composite, SWT.BORDER);
+
 			GridLayoutFactory.swtDefaults().numColumns(2).generateLayout(composite);
 
 			sc.setContent(composite);
@@ -83,7 +77,7 @@ public class Bug487160_WizardWithScrolledComposite {
 	static class SampleWizard extends Wizard {
 
 		@Override
-		public void addPages() {			
+		public void addPages() {
 			addPage(new FirstWizardPage());
 			addPage(new SecondWizardPage());
 		}
