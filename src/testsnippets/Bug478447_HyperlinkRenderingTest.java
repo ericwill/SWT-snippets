@@ -11,6 +11,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
+/*
+ * NOTE: this snippet has a JFace/Platform UI dependency. If you would like to
+ * make use of this snippet, please checkout the necessary sources and modify
+ * the classpath manually.
+ */
+
 public class Bug478447_HyperlinkRenderingTest {
 	public static void main(String[] args) {
 		Display display = new Display();

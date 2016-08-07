@@ -10,6 +10,12 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.forms.widgets.ImageHyperlink;
 
+/*
+ * NOTE: this snippet has a JFace/Platform UI dependency. If you would like to
+ * make use of this snippet, please checkout the necessary sources and modify
+ * the classpath manually.
+ */
+
 public class Bug478442_HyperLinkRenderingTest {
 	public static void main(String[] args) {
         Display display = new Display();
