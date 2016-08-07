@@ -10,6 +10,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 
+/*
+ * NOTE: this snippet has a JFace/Platform UI dependency. If you would like to
+ * make use of this snippet, please checkout the necessary sources and modify
+ * the classpath manually.
+ */
+
 public class Bug421836_CompositeBackgroundTest {
 
 	public static void main(String[] args) {

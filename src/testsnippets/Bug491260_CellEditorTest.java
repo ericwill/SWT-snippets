@@ -13,6 +13,12 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
  
+/*
+ * NOTE: this snippet has a JFace/Platform UI dependency. If you would like to
+ * make use of this snippet, please checkout the necessary sources and modify
+ * the classpath manually.
+ */
+
 /**
  * Demonstrates usage of {@link TextAndDialogCellEditor}. The email column uses the
  * TextAndDialogCellEditor; othe columns use ordinary {@link TextCellEditor}s.

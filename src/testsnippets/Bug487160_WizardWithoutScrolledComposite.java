@@ -12,6 +12,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+/*
+ * NOTE: this snippet has a JFace/Platform UI dependency. If you would like to
+ * make use of this snippet, please checkout the necessary sources and modify
+ * the classpath manually.
+ */
+
 /**
  * Creates and opens a wizard dialog with two simple wizard pages.
  */
