@@ -31,7 +31,27 @@ public class Snippet_DefaultSelectionEvent {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String selectionType = "Selection event";
-				modifierLogic(e, selectionType);
+				if (e.stateMask == 0) {
+					System.out.println(selectionType + "\n"
+							+ "		Gtk/Win32/Cocoa: Enter or click (no mod)");
+				}
+				
+				if ((e.stateMask & SWT.MOD1) != 0 | ((e.stateMask & SWT.MOD4) != 0)) {
+					System.out.println(selectionType + "\n"
+							+ "		Gtk:   Ctrl+Enter or Ctrl+Click (mod1) \n"
+							+ "		Win32: Ctrl+Enter does not trigger default selection. Ctrl+Enter does\n"
+							+ "		Cocoa: Ctrl+Enter/Click+Enter  (Mod4) or Cmd+Enter/Cmd+Click (Mod1) \n");
+				}
+
+				if ((e.stateMask & SWT.MOD2) != 0) {
+					System.out.println(selectionType + "\n"
+							+ "		Gtk/Win32/Cocoa: Shift+Enter or Shift+Click(Mod2) \n");
+				}
+				
+				if ((e.stateMask & SWT.MOD3) != 0) {
+					System.out.println(selectionType + "\n"
+							+ "		Gtk/Win32/Cocoa: Alt+Enter or Alt+click (Mod3)");     
+				}
 			}
 
 			/**
@@ -40,15 +60,6 @@ public class Snippet_DefaultSelectionEvent {
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				String selectionType = "Default selection event"; 
-				modifierLogic(e, selectionType);
-			}
-
-			/**
-			 * @param e
-			 * @param selectionType
-			 */
-			public void modifierLogic(SelectionEvent e, String selectionType) {
-				
 				if (e.stateMask == 0) {
 					System.out.println(selectionType + "\n"
 							+ "		Gtk/Win32/Cocoa: Enter or click (no mod)");
