@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
-public class Bug_DefaultSelectionEvent {
+public class Snippet_DefaultSelectionEvent {
 	public static void main (String [] args) {
 		Display display = new Display ();
 		Shell shell = new Shell (display);
@@ -25,31 +25,50 @@ public class Bug_DefaultSelectionEvent {
 
 		table.addSelectionListener(new SelectionListener() {
 
+			/**
+			 * Selection event occurs when clicking or using arrow keys.
+			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				System.out.println("Table widget selection occured" + e.stateMask);
+				String selectionType = "Selection event";
+				modifierLogic(e, selectionType);
 			}
 
 			/**
-			 * Pressed when En
+			 * Default selection triggered upon double click or 'enter' button.
 			 */
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
-				if ((e.stateMask & SWT.MOD1) != 0) {
-					System.out.println("Default selection event. Mod1 Control held down");
+				String selectionType = "Default selection event"; 
+				modifierLogic(e, selectionType);
+			}
+
+			/**
+			 * @param e
+			 * @param selectionType
+			 */
+			public void modifierLogic(SelectionEvent e, String selectionType) {
+				
+				if (e.stateMask == 0) {
+					System.out.println(selectionType + "\n"
+							+ "		Gtk/Win32/Cocoa: Enter or click (no mod)");
 				}
-				if ((e.stateMask & SWT.MOD2) != 0) {
-					System.out.println("Default selection event. Mod2 Shift held down");
-				}
-				if ((e.stateMask & SWT.MOD3) != 0) {
-					System.out.println("Default selection event. Mod3 Alt held down");
-				}
-				if ((e.stateMask & SWT.MOD4) != 0) {
-					System.out.println("Default selection event. Mod4 held down (not widley supported)");
+				
+				if ((e.stateMask & SWT.MOD1) != 0 | ((e.stateMask & SWT.MOD4) != 0)) {
+					System.out.println(selectionType + "\n"
+							+ "		Gtk:   Ctrl+Enter or Ctrl+Click (mod1) \n"
+							+ "		Win32: Ctrl+Enter does not trigger default selection. Ctrl+Enter does\n"
+							+ "		Cocoa: Ctrl+Enter/Click+Enter  (Mod4) or Cmd+Enter/Cmd+Click (Mod1) \n");
 				}
 
-				if (e.stateMask == 0) {
-					System.out.println("Default selection event. No modifiers pressed");
+				if ((e.stateMask & SWT.MOD2) != 0) {
+					System.out.println(selectionType + "\n"
+							+ "		Gtk/Win32/Cocoa: Shift+Enter or Shift+Click(Mod2) \n");
+				}
+				
+				if ((e.stateMask & SWT.MOD3) != 0) {
+					System.out.println(selectionType + "\n"
+							+ "		Gtk/Win32/Cocoa: Alt+Enter or Alt+click (Mod3)");     
 				}
 			}
 		});
