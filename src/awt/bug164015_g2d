@@ -1,0 +1,10 @@
+#!/usr/bin/python
+
+import os
+
+for i in range(0, 2400, 200):
+	for j in range(0, 2400, 200):
+		name = "tile_%d_%d.gif" % (i,j)
+		os.system("cp tile_0_0.gif " + name)
+
+
