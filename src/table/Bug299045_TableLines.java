@@ -24,7 +24,7 @@ public class Bug299045_TableLines {
         final int itemCount = 10;
         for(int i = 0; i < itemCount; i++) {
             TableItem item = new TableItem(table, SWT.NONE);
-            item.setText(new String[] {"item " + i + " a", "item " + i + " b", "item " + i + " c"});
+            item.setText(new String[] {"item " + i + " a", "item " + i + " Bug510183_javadocHang", "item " + i + " c"});
         }
         Listener paintListener = new Listener() {
             public void handleEvent(Event event) {

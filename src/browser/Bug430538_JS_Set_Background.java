@@ -33,6 +33,15 @@ public class Bug430538_JS_Set_Background {
 		Button evauateJS = new Button(shell, SWT.PUSH);
 		evauateJS.setText("Evaluate JS (Green with return val)");
 		
+		Button evaluateGetId = new Button(shell, SWT.PUSH);
+		evaluateGetId.setText("Get paragraph content");
+		
+		Button execDefineMethod = new Button(shell, SWT.PUSH);
+		execDefineMethod.setText("Define a method");
+		
+		Button execUseNewlyDefineMethod = new Button(shell, SWT.PUSH);
+		execUseNewlyDefineMethod.setText("Use newly defined method");
+		
 		final Browser browser = new Browser(shell, SWT.WEBKIT);
 		GridData gd = new GridData();
 		gd.horizontalAlignment = GridData.FILL;
@@ -58,11 +67,27 @@ public class Bug430538_JS_Set_Background {
 		
 		// EVALUATE << NOT EXECUTE.
 		evauateJS.addListener(SWT.MouseDown, ev -> {
-			String script = "document.body.style.backgroundColor = 'green'; function hullo() {return 'hi'}; hullo()";
-			browser.evaluate(script);
+			String script = "return 1 + 2; document.body.style.backgroundColor = 'green'; function hullo() {return 'hi'}; hullo()";
+			String result = (String) browser.evaluate(script);
+			System.out.println("Java: returned: " + result);
 		});
 
-
+		evaluateGetId.addListener(SWT.MouseDown, ev -> { 
+			String script = "function hullo() {return document.getElementById('myid').childNodes[0].nodeValue;}; hullo()";
+			String result = (String) browser.evaluate(script);
+			System.out.println("Java: returned: " + result);
+		});
+		
+		execDefineMethod.addListener(SWT.MouseDown, ev -> { 
+			String script = "function myNewFunc() {document.body.style.backgroundColor = 'red';return 'hello world'}";
+			browser.execute(script);
+		});
+		execUseNewlyDefineMethod.addListener(SWT.MouseDown, ev -> { 
+			String script = "myNewFunc()";
+			browser.execute(script);
+		});
+		
+		
  	    shell.open();
 	    while (!shell.isDisposed ()) {
 	        if (!display.readAndDispatch ()) display.sleep ();
