@@ -16,13 +16,12 @@ public class snip_browser_noJavascript_twoInstances {
 	static int i2page = 1;
 
 	/**
-	 * Test that turning off JS in one browser instance doesn't turn off JS execution in anoter insance.
+	 * Test that turning off JS in one browser instance doesn't turn off JS execution in another insance.
 	 *
 	 * Logic:
-	 * 
 	 * 2 Browser instances.
 	 * Instance 1: Javascript is dissabled. Page reloaded. Expected behaviour: Javascript should not run on second page.
-	 * Instance 2: Javascript is left as is. Page is reloaded (by instance 1). Expected behaviour:  ____ ?
+	 * Instance 2: Javascript is left as is. Page is reloaded (by instance 1). Expected behaviour: Javascript should execute.
 	 * 
 	 * @param args
 	 */
