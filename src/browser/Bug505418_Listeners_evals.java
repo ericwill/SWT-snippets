@@ -323,6 +323,7 @@ public class Bug505418_Listeners_evals {
 			
 			@Override
 			public void mouseDown(MouseEvent e) {
+				browser.execute("document.body.style.backgroundColor = 'red'");
 				browser.execute("window.open('https://www.google.com', 'Dialog')");
 			}
 			

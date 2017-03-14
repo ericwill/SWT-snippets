@@ -8,7 +8,7 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-public class snip_browser_evaluate_redBack {
+public class snip_browser_evaluate_multiLine {
 
 	public static void main(String[] args) {
 		final String html = "<html><title>Snippet</title><body><p id='myid'>Best Friends</p><p id='myid2'>Cat and Dog</p></body></html>";
@@ -28,7 +28,6 @@ public class snip_browser_evaluate_redBack {
 				System.out.println("returned: " + shouldbeTrue);
 			}
 		});
-
 		
 		shell.open();
 		while (!shell.isDisposed()) {
