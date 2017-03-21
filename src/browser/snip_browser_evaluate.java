@@ -1,5 +1,8 @@
 package browser;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTError;
 import org.eclipse.swt.browser.Browser;
@@ -17,6 +20,13 @@ public class snip_browser_evaluate {
 		Display display = new Display();
 		final Shell shell = new Shell(display);
 		shell.setLayout(new FillLayout());
+//		System.out.println("Stacktrace:\n" + new Throwable().g() + "\n");
+		
+		StringWriter sw = new StringWriter();
+		new Throwable("").printStackTrace(new PrintWriter(sw));
+		String stackTrace = sw.toString();
+		System.out.println("Stacktrace:\n" + stackTrace);
+		
 		final Browser browser;
 		try {
 			browser = new Browser(shell, SWT.NONE);

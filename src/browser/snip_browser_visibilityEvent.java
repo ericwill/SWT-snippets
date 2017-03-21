@@ -57,21 +57,27 @@ public class snip_browser_visibilityEvent {
 		});
 
 
+//
+//		browser.addProgressListener(new ProgressAdapter() {
+//			@Override
+//			public void completed(ProgressEvent event) {
+//				System.out.println("Progress finished");
+////				browser.execute("window.open(\"https://www.w3schools.com\", 'height=300,width=500')");
+////				browser.execute("window.open(\"https://www.google.com\")");
+////				browser.execute("window.open(\"https://www.w3schools.com\")");
+//				browser.execute("window.open('javascript:\"<h1>Simple New Window 3</h2><p>bounds: height=200,width=500<p>\"', 'childWin', 'height=200,width=500')");
+//			}
+//		});
 
-		browser.addProgressListener(new ProgressAdapter() {
-			@Override
-			public void completed(ProgressEvent event) {
-				System.out.println("Progress finished");
-//				browser.execute("window.open(\"https://www.w3schools.com\", 'height=300,width=500')");
-//				browser.execute("window.open(\"https://www.google.com\")");
-//				browser.execute("window.open(\"https://www.w3schools.com\")");
-				browser.execute("window.open('javascript:\"<h1>Simple New Window 3</h2><p>bounds: height=200,width=500<p>\"', 'childWin', 'height=200,width=500')");
-			}
-		});
-
-		browser.setText("This should open a new child browser");
+//		browser.setText("This should open a new child browser");
 //		browser.setUrl("http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open");
 
+		browser.setText("<script type='text/javascript'>\n" + 
+				"window.open('javascript:\"<h1>Simple New Window 3</h2><p>bounds: height=100,width=300<p>\"', \"\", \"height=100,width=300\")\n" + // W2 correct. W1 too big. 
+//				"window.open('javascript:\"<h1>Simple New Window 1</h2><p>bounds: left=100,top=200,height=100,width=300<p>\"', \"\", \"left=100,top=200,height=100,width=300\")\n" +
+//				"window.open('javascript:\"<h1>Simple New Window 3</h2><p>bounds: height=100,width=300<p>\"', \"\", \"height=100,width=300\")\n" +
+//				"window.open('http://www.google.com')\n" +
+				"</script> This should open a child window");
 		shell.open();
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())

@@ -27,13 +27,13 @@ public class Bug505418_Listeners_evals {
 	public static int count = 0;
 
 	public static void main(String[] args) {
-//		locationChange();  // new url
-//		progressListener(); // make progress.
-//		statusTextListener();
-//		closeWindowListener();
-//		openWindowListener();
-//		titleListener();
-//		visibilityWindowListener(); // Quircky on webkit2.
+		locationChange();  // new url
+		progressListener(); // make progress.
+		statusTextListener();
+		closeWindowListener();
+		openWindowListener();
+		titleListener();
+		visibilityWindowListener(); // Quircky on webkit2.
 		miscSWTListeners();
 	}
 

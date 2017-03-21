@@ -23,9 +23,11 @@ public class snip_browser_evaluate_multiLine {
 		browser.addProgressListener(new ProgressAdapter() {
 			@Override
 			public void completed(ProgressEvent event) {
-				String script = "document.body.style.backgroundColor = 'red'; return true";
+//				String script = "document.body.style.backgroundColor = 'red'; return true";
+//				String script = "i = 1; document.body.style.backgroundColor = 'red';return true";
+				String script = "tr = true; return tr";	// Works on Webkit1, but on webkit this throws an exception. Derp.
 				Boolean shouldbeTrue = (Boolean) browser.evaluate(script);
-				System.out.println("returned: " + shouldbeTrue);
+				System.out.println("Should be 'true'. Actual returned: " + shouldbeTrue);
 			}
 		});
 		
