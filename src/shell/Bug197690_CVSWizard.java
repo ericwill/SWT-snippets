@@ -18,6 +18,8 @@ public class Bug197690_CVSWizard {
 	    dt.addSelectionListener(new SelectionAdapter(){
 	        public void widgetSelected(SelectionEvent e) {
 	            System.out.println(dt.getMonth());
+	            System.out.println(dt.getDay());
+	            System.out.println(dt.getYear());
 	        }
 	    });
 	    shell1.open();

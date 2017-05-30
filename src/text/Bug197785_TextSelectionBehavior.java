@@ -21,7 +21,10 @@ public class Bug197785_TextSelectionBehavior
       b.addListener(SWT.Selection, new Listener(){
          public void handleEvent(Event e)
          {
-            text.setSelection(0, -1);
+        	
+        	text.setSelection(0, -1);
+        	 // Alternative to try:
+//        	text.setSelection(0, text1.getCharCount());
             System.out.println("Caret line number " + text.getCaretLineNumber());
             System.out.println("Caret position " + text.getCaretPosition());
 
