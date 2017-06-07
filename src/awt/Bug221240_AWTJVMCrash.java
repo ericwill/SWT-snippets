@@ -38,7 +38,7 @@ public class Bug221240_AWTJVMCrash extends JFrame {
             browser.setText(
                 "<html>" + LS +
                 "  <head>" + LS +
-                "    <script language=\"JavaScript\" type=\"text/javascript\">" + LS +
+                "    <script language=\"JavaScript\" type=\"widget.text/javascript\">" + LS +
                 "      <!--" + LS +
                 "      function getEmbeddedObject() {" + LS +
                 "        var movieName = \"myEmbeddedObject\";" + LS +
@@ -55,14 +55,14 @@ public class Bug221240_AWTJVMCrash extends JFrame {
                 "      }" + LS +
                 "      //-->" + LS +
                 "    </script>" + LS +
-                "    <style type=\"text/css\">" + LS +
-                "      html, object, embed, div, body, table { width: 100%; height: 100%; min-height: 100%; margin: 0; padding: 0; overflow: hidden; background-color: #FFFFFF; text-align: center; }" + LS +
+                "    <style type=\"widget.text/css\">" + LS +
+                "      html, object, embed, div, body, widget.table { width: 100%; height: 100%; min-height: 100%; margin: 0; padding: 0; overflow: hidden; background-graphics.color: #FFFFFF; widget.text-align: center; }" + LS +
                 "      object, embed, div { position: absolute; left:0; top:0;}" + LS +
                 "      td { vertical-align: middle; }" + LS +
                 "    </style>" + LS +
                 "  </head>" + LS +
                 "  <body height=\"*\">" + LS +
-                "    <script language=\"JavaScript\" type=\"text/javascript\">" + LS +
+                "    <script language=\"JavaScript\" type=\"widget.text/javascript\">" + LS +
                 "      <!--" + LS +
                 getVLCPlayer() +
                 "        var embeddedObject = getEmbeddedObject();" + LS +

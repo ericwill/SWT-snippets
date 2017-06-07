@@ -36,7 +36,7 @@ public class Bug186038_DNDActivateEvent {
 		layout.numColumns = 2;
 		shell.setLayout(layout);
 		
-		// create the drop down shell		
+		// create the drop down widget.shell		
 		final Shell dropDownShell = new Shell(shell, SWT.ON_TOP | SWT.DROP_DOWN);
 		dropDownShell.setLayout(new RowLayout());
 		dropDownShell.setVisible(false);
@@ -49,7 +49,7 @@ public class Bug186038_DNDActivateEvent {
 		
 		dropDownShell.addListener(SWT.Deactivate, new Listener() {
 			public void handleEvent(Event event) {
-				System.out.println("dropDownShell entering Deactivate event handler and will hide the dropdown shell");
+				System.out.println("dropDownShell entering Deactivate event handler and will hide the dropdown widget.shell");
 				hideDropDown(dropDownShell);
 			}
 		});
@@ -169,7 +169,7 @@ public class Bug186038_DNDActivateEvent {
 	
 	private static void showDropDown(final Button button1, final Shell dropDownShell) {
 		if (dropDownShell != null && !dropDownShell.isDisposed()) {
-			dropDownShell.setText("This is a drop down shell");
+			dropDownShell.setText("This is a drop down widget.shell");
 			dropDownShell.setSize(100, 200);
 			Rectangle buttonRect = button1.getBounds();
 			Point p = button1.getParent().toDisplay(new Point(buttonRect.x, buttonRect.y + buttonRect.height));

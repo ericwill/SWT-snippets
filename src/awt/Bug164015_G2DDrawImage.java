@@ -85,7 +85,7 @@ public class Bug164015_G2DDrawImage extends JPanel {
 
 				BufferedImage currentImage = loadTile(currtile_x, currtile_y);
 				if (currentImage != null) {
-					System.err.print("drawing image... ");
+					System.err.print("drawing graphics.image... ");
 					g2D.drawImage(currentImage, currtile_x - viewport_x,
 							currtile_y - viewport_y, null);
 					System.err.println("done");

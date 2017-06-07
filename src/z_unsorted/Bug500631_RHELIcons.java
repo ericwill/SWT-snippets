@@ -23,15 +23,15 @@ public class Bug500631_RHELIcons {
         shell.setText("Photo Application");
         shell.setSize(500, 500);
         
-        //creating a menu
+        //creating a widget.menu
         Composite composite = new Composite(shell, SWT.NONE); 
         GridLayout gridLayout = new GridLayout();
         gridLayout.numColumns = 1;
         composite.setLayout(gridLayout);
         
-        Menu menu = new Menu(shell,SWT.BAR); //root menu bar
+        Menu menu = new Menu(shell,SWT.BAR); //root widget.menu bar
 
-        MenuItem menuItem = new MenuItem(menu,SWT.CASCADE); //adding a menu item to hold each drop-down menu
+        MenuItem menuItem = new MenuItem(menu,SWT.CASCADE); //adding a widget.menu item to hold each drop-down widget.menu
         menuItem.setText("Menu");
    
         Menu fileMenu = new Menu(menuItem);

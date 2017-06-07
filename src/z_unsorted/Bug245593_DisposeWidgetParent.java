@@ -51,9 +51,9 @@ public class Bug245593_DisposeWidgetParent {
 		parent = new Composite(shell,SWT.NONE);
 		parent.setLayout(new GridLayout(2,true));
 		Text triggerText = new Text(parent,SWT.BORDER);
-		triggerText.setText("text 1");
+		triggerText.setText("widget.text 1");
 		Text looseFocus = new Text(parent,SWT.BORDER);
-		looseFocus.setText("text 2");
+		looseFocus.setText("widget.text 2");
 		triggerText.addFocusListener(new FocusAdapter(){
 
 			public void focusLost(FocusEvent e) {

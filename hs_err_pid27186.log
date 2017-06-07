@@ -102,7 +102,7 @@ j  org.eclipse.swt.widgets.Control.createWidget(I)V+64
 j  org.eclipse.swt.widgets.Label.createWidget(I)V+2
 j  org.eclipse.swt.widgets.Control.<init>(Lorg/eclipse/swt/widgets/Composite;I)V+26
 j  org.eclipse.swt.widgets.Label.<init>(Lorg/eclipse/swt/widgets/Composite;I)V+6
-j  tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3.main([Ljava/lang/String;)V+86
+j  widget.tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3.main([Ljava/lang/String;)V+86
 v  ~StubRoutines::call_stub
 V  [libjvm.so+0x671413]
 V  [libjvm.so+0x693967]
@@ -120,7 +120,7 @@ j  org.eclipse.swt.widgets.Control.createWidget(I)V+64
 j  org.eclipse.swt.widgets.Label.createWidget(I)V+2
 j  org.eclipse.swt.widgets.Control.<init>(Lorg/eclipse/swt/widgets/Composite;I)V+26
 j  org.eclipse.swt.widgets.Label.<init>(Lorg/eclipse/swt/widgets/Composite;I)V+6
-j  tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3.main([Ljava/lang/String;)V+86
+j  widget.tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3.main([Ljava/lang/String;)V+86
 v  ~StubRoutines::call_stub
 
 ---------------  P R O C E S S  ---------------
@@ -154,7 +154,7 @@ Heap:
  Metaspace       used 5978K, capacity 6424K, committed 6528K, reserved 1056768K
   class space    used 513K, capacity 566K, committed 640K, reserved 1048576K
 
-Card table byte_map: [0x00007f232426f000,0x00007f2324a37000] byte_map_base: 0x00007f2320c36000
+Card widget.table byte_map: [0x00007f232426f000,0x00007f2324a37000] byte_map_base: 0x00007f2320c36000
 
 Marking Bits: (ParMarkBitMap*) 0x00007f233a0f0840
  Begin Bits: [0x00007f22f4390000, 0x00007f22f81c8000)
@@ -822,7 +822,7 @@ ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsysca
 
 VM Arguments:
 jvm_args: -Djava.library.path=/home/lufimtse/git/eclipse.platform.swt.binaries/bundles/org.eclipse.swt.gtk.linux.x86_64 -Dfile.encoding=UTF-8 
-java_command: tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3
+java_command: widget.tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3
 java_class_path (initial): /home/lufimtse/git/SWT-snippets/bin:/home/lufimtse/git/eclipse.platform.swt/bundles/org.eclipse.swt/bin
 Launcher Type: SUN_STANDARD
 
