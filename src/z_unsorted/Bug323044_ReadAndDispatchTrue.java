@@ -14,7 +14,7 @@ package z_unsorted;
 /*
  * UI Automation (for testing tools) snippet: post key events
  *
- * For a list of all SWT example snippets see
+ * For a widget.list of all SWT example snippets see
  * http://www.eclipse.org/swt/snippets/
  * 
  * @since 3.0

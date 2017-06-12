@@ -59,7 +59,7 @@ public class Bug482457_JVMCrashMainContextIteration {
 			
 				Label l = new Label(c, SWT.NONE);
 				
-				l.setText("this is a label");
+				l.setText("this is a widget.label");
 				c.pack();
 				
 				

@@ -23,7 +23,7 @@ package awt;
 //	public static void main(String[] args) {
 //		HelpSet helpSet;
 //		Display display;
-//		Shell shell;
+//		Shell widget.shell;
 //		Composite composite;
 //		Frame frame;
 //		JHelp help;
@@ -43,17 +43,17 @@ package awt;
 //		}
 //
 //		display = new Display();
-//		shell = new Shell(display);
-//		shell.setLayout(new FillLayout());
-//		composite = new Composite(shell, SWT.NO_BACKGROUND | SWT.EMBEDDED);
+//		widget.shell = new Shell(display);
+//		widget.shell.setLayout(new FillLayout());
+//		composite = new Composite(widget.shell, SWT.NO_BACKGROUND | SWT.EMBEDDED);
 //		frame = SWT_AWT.new_Frame(composite);
 //		help = new JHelp(helpSet);
 //		frame.add(help);
 //
 //		frame.setVisible(true);
-//		shell.open();
+//		widget.shell.open();
 //
-//		while (!shell.isDisposed())
+//		while (!widget.shell.isDisposed())
 //			if (!display.readAndDispatch())
 //				display.sleep();
 //

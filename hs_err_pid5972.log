@@ -80,8 +80,8 @@ C  0x0000000000046ff8
 Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
 J 348  org.eclipse.swt.internal.gtk.OS._g_main_context_check(JIJI)I (0 bytes) @ 0x00007f58c11d710a [0x00007f58c11d70c0+0x4a]
 J 372 C2 org.eclipse.swt.widgets.Display.sleep()Z (395 bytes) @ 0x00007f58c11f520c [0x00007f58c11f4e00+0x40c]
-j  tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3.mainEventLoop(Lorg/eclipse/swt/widgets/Shell;)V+30
-j  tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3.main([Ljava/lang/String;)V+105
+j  widget.tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3.mainEventLoop(Lorg/eclipse/swt/widgets/Shell;)V+30
+j  widget.tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3.main([Ljava/lang/String;)V+105
 v  ~StubRoutines::call_stub
 
 ---------------  P R O C E S S  ---------------
@@ -115,7 +115,7 @@ Heap:
  Metaspace       used 6084K, capacity 6552K, committed 6784K, reserved 1056768K
   class space    used 521K, capacity 566K, committed 640K, reserved 1048576K
 
-Card table byte_map: [0x00007f58d448d000,0x00007f58d4c55000] byte_map_base: 0x00007f58d0e54000
+Card widget.table byte_map: [0x00007f58d448d000,0x00007f58d4c55000] byte_map_base: 0x00007f58d0e54000
 
 Marking Bits: (ParMarkBitMap*) 0x00007f58d728a840
  Begin Bits: [0x00007f588c390000, 0x00007f58901c8000)
@@ -869,7 +869,7 @@ ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsysca
 
 VM Arguments:
 jvm_args: -Djava.library.path=/home/lufimtse/git/eclipse.platform.swt.binaries/bundles/org.eclipse.swt.gtk.linux.x86_64 -Dfile.encoding=UTF-8 
-java_command: tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3
+java_command: widget.tabfolder.Bug510803_TabFolder_editable_table_brokenGtk3
 java_class_path (initial): /home/lufimtse/git/SWT-snippets/bin:/home/lufimtse/git/eclipse.platform.swt/bundles/org.eclipse.swt/bin
 Launcher Type: SUN_STANDARD
 

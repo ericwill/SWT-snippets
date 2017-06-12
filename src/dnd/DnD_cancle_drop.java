@@ -41,7 +41,7 @@ public class DnD_cancle_drop {
 		source.addDragListener (new DragSourceListener() {
 			@Override
 			public void dragStart (DragSourceEvent event) {
-				//only start if there is text in label 
+				//only start if there is widget.text in widget.label 
 				if (dragLabel.getText ().length() == 0) {
 					event.doit = false;
 				}
