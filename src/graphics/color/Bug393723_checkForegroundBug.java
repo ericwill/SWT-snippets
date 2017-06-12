@@ -1,4 +1,4 @@
-package COLOR;
+package graphics.color;
 
 import org.eclipse.swt.*;
 import org.eclipse.swt.graphics.*;
