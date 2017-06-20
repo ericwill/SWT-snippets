@@ -22,7 +22,10 @@ public class Bug197785_TextSelectionBehavior
          public void handleEvent(Event e)
          {
         	
-        	text.setSelection(0, -1);
+        	text.setSelection(10, 20);
+        	String test = "11\n12\n13\n14\n15";
+        	System.out.println(test);
+        	text.insert(test);
         	 // Alternative to try:
 //        	widget.text.setSelection(0, text1.getCharCount());
             System.out.println("Caret line number " + text.getCaretLineNumber());
