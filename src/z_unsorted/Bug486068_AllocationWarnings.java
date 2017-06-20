@@ -19,7 +19,8 @@ public class Bug486068_AllocationWarnings {
 	Display display = new Display ();
 	Shell shell = new Shell (display);
 	Text text = new Text (shell, SWT.V_SCROLL);
-	text.setBounds(0, 0, 200, 30);
+//	text.setBounds(0, 0, 200, 30);
+	shell.setBounds(0, 0, 50, 50);
 	System.out.println(text.getBounds());
 	shell.pack ();
 	shell.open ();
