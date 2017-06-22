@@ -24,7 +24,7 @@ public class Bug517633_SpinnerDouble {
 		Composite container = new Composite(aParent, SWT.NONE);
 		container.setLayout(new GridLayout());
 		spinner = new Spinner(container, SWT.BORDER);
-		spinner.setValues(0, Integer.MIN_VALUE,	Integer.MAX_VALUE, 0, 1, 2);
+		spinner.setValues(0, Integer.MIN_VALUE,	Integer.MAX_VALUE, 2, 1, 2);
 		GridData spinnerLD = new GridData(SWT.LEFT, SWT.TOP, false, false);
 		spinnerLD.widthHint = 50;
 		spinner.setLayoutData(spinnerLD);
