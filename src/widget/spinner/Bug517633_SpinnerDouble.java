@@ -24,7 +24,7 @@ public class Bug517633_SpinnerDouble {
 		Composite container = new Composite(aParent, SWT.NONE);
 		container.setLayout(new GridLayout());
 		spinner = new Spinner(container, SWT.BORDER);
-		spinner.setValues(0, Integer.MIN_VALUE,	Integer.MAX_VALUE, 2, 1, 2);
+		spinner.setValues(0, Integer.MIN_VALUE,	Integer.MAX_VALUE, 0, 1, 2);
 		GridData spinnerLD = new GridData(SWT.LEFT, SWT.TOP, false, false);
 		spinnerLD.widthHint = 50;
 		spinner.setLayoutData(spinnerLD);
@@ -64,7 +64,7 @@ public class Bug517633_SpinnerDouble {
 		shell.setLayout(new GridLayout());
 		Bug517633_SpinnerDouble page = new Bug517633_SpinnerDouble();
 		Control pageControl =page.createContent(shell);
-		page.setInput(4);
+		page.setInput(10003);
 		GridData pageLayoutData = new GridData(SWT.FILL, SWT.FILL, true, true);
 		pageLayoutData.widthHint = 200;
 		pageControl.setLayoutData(pageLayoutData);
